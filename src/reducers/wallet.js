@@ -14,7 +14,10 @@ const currenciesReducer = (state = INITIAL_STATE, action) => {
       currencies: action.resultApi,
     };
   case ERROR:
-    return 'Não foi possível acessar a API';
+    return {
+      ...state,
+      error: 'Não foi possivel acessar a API',
+    };
   default:
     return state;
   }
