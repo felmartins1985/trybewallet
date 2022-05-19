@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchAPI, saveExpense } from '../actions/index';
+import ExpensesTable from '../component/Expenses';
 
 class Wallet extends React.Component {
   constructor() {
@@ -146,6 +147,10 @@ class Wallet extends React.Component {
             <th>Editar/Excluir</th>
           </tr>
         </table>
+        <div>
+          <ExpensesTable />
+        </div>
+
       </div>
     );
   }
@@ -165,6 +170,6 @@ Wallet.propTypes = {
   currenciesFunc: PropTypes.func.isRequired,
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   setExpenses: PropTypes.func.isRequired,
-  expenses: PropTypes.arrayOf(PropTypes.string).isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
