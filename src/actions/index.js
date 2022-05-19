@@ -17,8 +17,13 @@ export const currenciesSucess = (data) => ({ type: CURRENCIES_SUCESS, data });
 export const getError = (error) => ({ type: Error, error });
 export const getCurrencies = (resultApi) => ({ type: GET_CURRENCIES, resultApi });
 //
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 export const saveExpense = (expenses) => ({
   type: SAVE_EXPENSE,
+  expenses,
+});
+export const removeExpense = (expenses) => ({
+  type: REMOVE_EXPENSE,
   expenses,
 });
 
