@@ -25,13 +25,12 @@ class ExpensesTable extends React.Component {
             <td>{Number(expense.value).toFixed(2)}</td>
             <td>{this.descriptionExpense(expense).coin}</td>
             <td>
-              {(this.descriptionExpense(expense).conversion).toFixed(2)}
+              {this.descriptionExpense(expense).conversion.toFixed(2)}
             </td>
-            <td>{(this.descriptionExpense(expense).totalValue).toFixed(2)}</td>
+            <td>{this.descriptionExpense(expense).totalValue.toFixed(2)}</td>
             <td>Real</td>
             <td>{ }</td>
           </tr>))}
-        ;
       </table>
 
     );
@@ -42,6 +41,6 @@ const mapStateToProps = (state) => ({
 });
 
 ExpensesTable.propTypes = {
-  expenses: PropTypes.arrayOf(PropTypes.string).isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
 export default connect(mapStateToProps)(ExpensesTable);
