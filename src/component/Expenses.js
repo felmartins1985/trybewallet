@@ -22,7 +22,7 @@ class ExpensesTable extends React.Component {
   }
 
   render() {
-    const { expenses } = this.props;
+    const { expenses, onClickEdit } = this.props;
     return (
       <table>
         {expenses.map((expense, index) => (
@@ -38,7 +38,13 @@ class ExpensesTable extends React.Component {
             <td>{this.descriptionExpense(expense).totalValue.toFixed(2)}</td>
             <td>Real</td>
             <td>
-              <button type="button">Editar</button>
+              <button
+                type="button"
+                data-testid="edit-btn"
+                onClick={ () => onClickEdit(expense.id, expense.exchangeRates) }
+              >
+                Editar
+              </button>
               <button
                 type="button"
                 onClick={ () => this.onClick(expense.id) }
@@ -59,10 +65,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   removeExp: (expensiveFilter) => dispatch(removeExpense(expensiveFilter)),
+
 });
 
 ExpensesTable.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   removeExp: PropTypes.func.isRequired,
+  onClickEdit: PropTypes.func.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ExpensesTable);

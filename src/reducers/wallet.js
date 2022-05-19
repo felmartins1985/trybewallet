@@ -1,5 +1,8 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
-import { GET_CURRENCIES, ERROR, SAVE_EXPENSE, REMOVE_EXPENSE } from '../actions/index';
+import {
+  GET_CURRENCIES, ERROR, SAVE_EXPENSE,
+  REMOVE_EXPENSE, EDIT_EXPENSE,
+} from '../actions/index';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -22,6 +25,11 @@ const currenciesReducer = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: action.expenses,
+    };
+  case EDIT_EXPENSE:
+    return {
+      ...state,
+      expenses: action.expensesEdit,
     };
   case ERROR:
     return {

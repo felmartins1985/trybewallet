@@ -5,6 +5,7 @@ export const GET_CURRENCIES = 'GET_CURRENCIES';
 export const ERROR_CURRENCY = 'ERROR_CURRENCY';
 export const SAVE_EXPENSE = 'SAVE_EXPENSE';
 export const CURRENCIES_SUCESS = 'CURRENCIES_SUCESS';
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 export const saveUserEmail = (user) => ({
   type: SAVE_USER,
   user,
@@ -25,6 +26,10 @@ export const saveExpense = (expenses) => ({
 export const removeExpense = (expenses) => ({
   type: REMOVE_EXPENSE,
   expenses,
+});
+export const editExpense = (expensesEdit) => ({
+  type: EDIT_EXPENSE,
+  expensesEdit,
 });
 
 export function fetchAPI() {
