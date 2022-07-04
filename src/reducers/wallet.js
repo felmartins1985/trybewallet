@@ -14,12 +14,12 @@ const currenciesReducer = (state = INITIAL_STATE, action) => {
   case GET_CURRENCIES:
     return {
       ...state,
-      currencies: action.resultApi,
+      currencies: action.resultApi, // peço para adicionar o parametro do fetch da api dentro do currencies caso seja essa ação
     };
   case SAVE_EXPENSE:
     return {
       ...state,
-      expenses: [...state.expenses, action.expenses],
+      expenses: [...state.expenses, action.expenses], // faço spread do expenses para poder pegar as expenses ja existentes e adicionar mais uma
     };
   case REMOVE_EXPENSE:
     return {
